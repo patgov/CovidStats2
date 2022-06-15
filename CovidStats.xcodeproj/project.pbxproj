@@ -13,6 +13,16 @@
 		3D8B64DF2858EDBD006C36CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64CD2858EDBC006C36CE /* ContentView.swift */; };
 		3D8B64E02858EDBD006C36CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8B64CE2858EDBD006C36CE /* Assets.xcassets */; };
 		3D8B64E12858EDBD006C36CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8B64CE2858EDBD006C36CE /* Assets.xcassets */; };
+		3D8B64EB2858EE2D006C36CE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64EA2858EE2D006C36CE /* APIService.swift */; };
+		3D8B64EC2858EE2D006C36CE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64EA2858EE2D006C36CE /* APIService.swift */; };
+		3D8B64EF2858F4A9006C36CE /* TotalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64EE2858F4A9006C36CE /* TotalData.swift */; };
+		3D8B64F02858F4A9006C36CE /* TotalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64EE2858F4A9006C36CE /* TotalData.swift */; };
+		3D8B64F228590BC4006C36CE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64F128590BC4006C36CE /* CustomError.swift */; };
+		3D8B64F328590BC4006C36CE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64F128590BC4006C36CE /* CustomError.swift */; };
+		3D8B64F528592CD0006C36CE /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64F428592CD0006C36CE /* Region.swift */; };
+		3D8B64F628592CD0006C36CE /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64F428592CD0006C36CE /* Region.swift */; };
+		3D8B64F8285937A9006C36CE /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64F7285937A9006C36CE /* Report.swift */; };
+		3D8B64F9285937A9006C36CE /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B64F7285937A9006C36CE /* Report.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +32,12 @@
 		3D8B64D32858EDBD006C36CE /* CovidStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8B64D92858EDBD006C36CE /* CovidStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8B64DB2858EDBD006C36CE /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		3D8B64EA2858EE2D006C36CE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		3D8B64ED2858EF00006C36CE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3D8B64EE2858F4A9006C36CE /* TotalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalData.swift; sourceTree = "<group>"; };
+		3D8B64F128590BC4006C36CE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		3D8B64F428592CD0006C36CE /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		3D8B64F7285937A9006C36CE /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +58,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D068B97285A383800E5A2CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D8B64EE2858F4A9006C36CE /* TotalData.swift */,
+				3D8B64F428592CD0006C36CE /* Region.swift */,
+				3D8B64F7285937A9006C36CE /* Report.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D068B98285A388100E5A2CF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3D8B64EA2858EE2D006C36CE /* APIService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3D068B99285A38B700E5A2CF /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				3D8B64F128590BC4006C36CE /* CustomError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		3D8B64C62858EDBB006C36CE = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +96,12 @@
 		3D8B64CB2858EDBC006C36CE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3D8B64ED2858EF00006C36CE /* README.md */,
 				3D8B64CC2858EDBC006C36CE /* CovidStatsApp.swift */,
 				3D8B64CD2858EDBC006C36CE /* ContentView.swift */,
+				3D068B99285A38B700E5A2CF /* Errors */,
+				3D068B98285A388100E5A2CF /* Networking */,
+				3D068B97285A383800E5A2CF /* Model */,
 				3D8B64CE2858EDBD006C36CE /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -176,7 +222,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D8B64F228590BC4006C36CE /* CustomError.swift in Sources */,
+				3D8B64EF2858F4A9006C36CE /* TotalData.swift in Sources */,
+				3D8B64F8285937A9006C36CE /* Report.swift in Sources */,
 				3D8B64DE2858EDBD006C36CE /* ContentView.swift in Sources */,
+				3D8B64F528592CD0006C36CE /* Region.swift in Sources */,
+				3D8B64EB2858EE2D006C36CE /* APIService.swift in Sources */,
 				3D8B64DC2858EDBD006C36CE /* CovidStatsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +236,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D8B64F328590BC4006C36CE /* CustomError.swift in Sources */,
+				3D8B64F02858F4A9006C36CE /* TotalData.swift in Sources */,
+				3D8B64F9285937A9006C36CE /* Report.swift in Sources */,
 				3D8B64DF2858EDBD006C36CE /* ContentView.swift in Sources */,
+				3D8B64F628592CD0006C36CE /* Region.swift in Sources */,
+				3D8B64EC2858EE2D006C36CE /* APIService.swift in Sources */,
 				3D8B64DD2858EDBD006C36CE /* CovidStatsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
