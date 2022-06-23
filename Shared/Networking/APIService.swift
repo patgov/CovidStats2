@@ -9,7 +9,6 @@
   // API SERVICE
 
 import Foundation
-import CoreFoundation
 
 // all api interacts with this class
 // From the API get the totals regions and report
@@ -42,12 +41,12 @@ class APIService {
 
     let totalURL = URLString + "/reports/total"
 
-    let url = URL(string: totalURL)
+  let url = URL(string: totalURL)
 
     // if no url show error incorrectURL
-    guard let url = url else {
+  guard let url = url else {
       // call the completion handler
-      completion(.failure(CovidError.incorrectURL))
+   completion(.failure(CovidError.incorrectURL))
       //then exit function
       return
     }
@@ -67,11 +66,11 @@ class APIService {
           completion(.failure(CovidError.noDataReceived))
         } else {
             // create json object and receive data object and convert to json
-            // This is for testing
-            // if let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-            // as? [String: Any] {
-            // print(json)
-            //}
+          //Testing
+ //           if let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+ //           as? [String: Any] {
+//             print(json)
+//            }
 
           // Convert TotalData to a data object
           let decoder = JSONDecoder()
@@ -82,29 +81,35 @@ class APIService {
             completion(.success(totalDataObject.data))
           } catch let error {
             completion(.failure(error))
-
           }
         }
       })
+    
       // urls request will not start without /.resume()
         dataTask.resume()
       }
 
 // MARK:  func fetchAllRegions (completion: @escaping(Result<[Country], Error>)-> Void)
+  
   func fetchAllRegions (completion: @escaping(Result<[Country], Error>)-> Void) {
+    // decode data in local database
+  //  let decoder = JSONDecoder()
+      ///Check if local data is available,and if there is data, convert the data to allCountries data, if there is local data use that data.
+  //  if LocalFileManager.shared.fetchLocalCountries() != nil {
 
-    let countriesURL = URLString + "/regions"
+   let countriesURL = URLString + "/regions"
 
-    let url = URL(string: countriesURL)
+   let url = URL(string: countriesURL)
 
       // if no url show error incorrectURL
     guard let url = url else {
-        // call the completion handler
+       //  call the completion handler
       completion(.failure(CovidError.incorrectURL))
-        //then exit function
+      //  then exit function
       return
     }
-      //If a url then request data from the url
+      
+      // If a url then request data from the url
     var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy,  timeoutInterval: 10.0)
 
     request.httpMethod = "GET"
@@ -118,17 +123,17 @@ class APIService {
           //use completion handler again or use error
         completion(.failure(CovidError.noDataReceived))
       } else {
+       let decoder = JSONDecoder()
 
-          // This is for testing
-          //if let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-          //as? [String: Any] {
+          // TODO: Text from api - works
+          //  if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
           // print(json)
-          //}
+          //  }
 
-        //   Convert TotalData to a data object
-        let decoder = JSONDecoder()
-        //   TotalDataObject is the  is the Object of TotalData: TotalData are the item in the totalDataObject ["data": { .... }]
-       //    Make TotalDataObject accept TotalData
+
+        // TotalDataObject is the is the Object of TotalData: TotalData are the item in the totalDataObject ["data": { .... }]
+        // Save the data locally to country.json The data will save the first time
+        LocalFileManager.shared.saveCountriesLocally(countryData: data)
         do {
           let allCountries = try decoder.decode(AllRegions.self, from: data!)
           completion(.success(allCountries.data))
@@ -137,18 +142,15 @@ class APIService {
         }
       }
     })
-      // urls request will not start wthout /resume
+      // urls request will not start without /resume
     dataTask.resume()
   }
 
 
-  //https://covid-19-statistics.p.rapidapi.com/reports?iso=USA
 
-// MARK: func fetchReport(for iso object: String, completion: @escape(Result<
+// MARK: func fetchReport(for iso object: String, completion: @escape(Result< [RegionReport], Error>) -> Void ){ ... }
 
-  //[RegionReport], Error>) -> Void ){ ... }
-
-  func fetchReport (for iso: String, completion: @escaping(Result<[RegionReport], Error>)-> Void) {
+  func fetchReport(for iso: String, completion: @escaping(Result<[RegionReport], Error>)-> Void) {
 
     let reportsURL = URLString + "/reports?iso=\(iso)"
 
@@ -175,13 +177,13 @@ class APIService {
           //use completion handler again or use error
         completion(.failure(CovidError.noDataReceived))
       } else {
-        //Test
-       //  if let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-        // as? [String: Any] {
-       //  print(json)
-        // }
 
         let decoder = JSONDecoder()
+
+          //    TODO: Text from api  Not working
+      // if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String: //Any] {
+        // print(json)
+        // }
 
         let formatter = DateFormatter()
         formatter.dateFormat = "y-MM-dd"
@@ -197,6 +199,5 @@ class APIService {
     })
     dataTask.resume()
   }
-
 }
 

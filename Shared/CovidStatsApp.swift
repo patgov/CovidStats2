@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+
 @main
 struct CovidStatsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          MainView()
         }
     }
 }

@@ -24,3 +24,32 @@ let dataTask = session.dataTask(with: request as URLRequest, completionHandler: 
 dataTask.resume() `
 
 
+* Used for testing
+`
+ .onAppear {
+
+        APIService.shared.fetchReport(for: "BGR") { result in
+          switch result {
+           case.success(let region):
+              print(region.count)
+            print(region.first!.formattedDate)
+           case .failure(let error):
+          print(error.localizedDescription)
+
+          }
+        }
+      }
+      `
+
+//Test allCountires
+
+  // case .success(let allCountries):
+  // print(allCountries.confirmed)
+
+//print(allCountries.count)
+
+  //   APIService.shared.fetchTotalData { result in
+  //Testing country regions
+  //        APIService.shared.fetchAllRegions { result in
+  //          switch result {
+// case .success(let totalData):
