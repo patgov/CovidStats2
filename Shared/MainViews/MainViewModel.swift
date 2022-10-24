@@ -6,6 +6,8 @@
 // fetch all the countries
 
 import Foundation
+import SwiftUI
+
 
 // fetch all the world total data
 
@@ -23,33 +25,35 @@ final class MainViewModel: ObservableObject {
     fetchAllCountries()
   }
 
+  // MARK: func fetchTotalData()
   func fetchTotalData() {
     APIService.shared.fetchTotalData { result in
-      DispatchQueue.main.async {
-        switch result {
-          case .success(let totalData):
-            self.totalData = totalData
-          case .failure(_):
-              // print("Error total data")
-            self.alertItem = AlertContext.unableToFetchTotalStats
 
+      //main thread
+        DispatchQueue.main.async {
+            switch result {
+            case .success(let totalData):
+                self.totalData = totalData
+            case .failure(_):
+                self.alertItem = AlertContext.unableToFetchTotalStats
+                
+            }
         }
-      }
     }
   }
 
+  // MARK: func fetchAllCountries()
   func fetchAllCountries() {
     APIService.shared.fetchAllRegions { result in
-        // Put it on the main thread
+        // main thread
       DispatchQueue.main.async {
         switch result {
           case .success(let allCountries):
               // sort alphabetically
             self.allCountries = allCountries.sorted(by: { $0.name < $1.name } )
+     
           case .failure(_):
-              //print("Error total data")
             self.alertItem = AlertContext.unableToFetchCountries
-
         }
       }
     }

@@ -3,7 +3,9 @@
 //  CovidStats
 //
 //  Created by Pat Govan on 6/20/22.
-//
+
+
+
 
 import SwiftUI
 
@@ -28,7 +30,7 @@ struct ReportView: View {
         Text(report.region.name)
           .foregroundColor(.white)
           .font(.largeTitle)
-   
+
         Text(report.region.province)
           .foregroundColor(.white)
           .font(.title)
@@ -39,7 +41,7 @@ struct ReportView: View {
         VStack(alignment: .leading, spacing: 15) {
           Text("Date: \(report.formattedDate)")
           Text("Confirmed: \(report.confirmed.roundedWithAbbreviation)")
-          Text("Active: \(report.active.roundedWithAbbreviation)")
+          Text("Active Cases: \(report.active.roundedWithAbbreviation)")
           Text("Deaths: \(report.deaths.roundedWithAbbreviation)")
           Text("Fatality Rate: \(report.fatality_rate.formatted())%")
         }
@@ -47,7 +49,7 @@ struct ReportView: View {
         .frame(maxWidth: .infinity)
         .padding(50)
         .background(.ultraThickMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .clipShape(RoundedRectangle(cornerRadius: 20))
         .padding()
 
         Spacer()
@@ -56,8 +58,8 @@ struct ReportView: View {
       }
     }
 
-
-    }
+    
+  }
 }
 
 struct ReportView_Previews: PreviewProvider {

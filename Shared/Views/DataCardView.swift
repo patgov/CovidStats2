@@ -3,7 +3,7 @@
 //  CovidStats
 //
 //  Created by Pat Govan on 6/15/22.
-//
+// A Card for World Totals that show name and number
 
 import SwiftUI
 
@@ -15,7 +15,8 @@ struct DataCardView: View {
 
 
   var body: some View {
-GeometryReader {  geometry in
+      // Dynamic card size for different size devices
+    GeometryReader {  geometry in
 
       VStack(spacing: 10) {
         Text(self.number)
@@ -29,11 +30,11 @@ GeometryReader {  geometry in
       .frame(width: geometry.size.width, height: 80, alignment: .center)
       .background(Color("cardBackground"))
       .cornerRadius(8)
-}
+    }
 
 
 
-}
+  }
 }
 
 struct DataCardView_Previews: PreviewProvider {

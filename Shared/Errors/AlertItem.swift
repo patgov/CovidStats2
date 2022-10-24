@@ -5,7 +5,7 @@
 //  Created by Pat Govan on 6/21/22.
 //
 
- import Foundation
+import Foundation
 import SwiftUI
 
 struct AlertItem: Identifiable {
@@ -15,6 +15,7 @@ struct AlertItem: Identifiable {
   let dismissButton: Alert.Button
 }
 
+// Default Alerts
 struct AlertContext {
 
   static let unableToFetchTotalStats = AlertItem(title: Text("Error World Total"),

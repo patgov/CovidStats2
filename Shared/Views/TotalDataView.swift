@@ -9,18 +9,21 @@ import SwiftUI
 
 struct TotalDataView: View {
 
+  // showing the TotalData
   var totalData: TotalData
 
     var body: some View {
       VStack{
         HStack {
+          // format number into a string
        DataCardView(number: totalData.confirmed.formatNumber, name: "Confirmed")
        DataCardView(number: totalData.active.formatNumber, name: "Active", color: .green)
         }
 
         HStack {
-        DataCardView(number: totalData.deaths.formatNumber, name: "Deaths", color: .red)
-     DataCardView(number:  String(format: "%.2f", totalData.fatality_rate), name: "Death %", color: .red)
+          DataCardView(number: totalData.deaths.formatNumber, name: "Deaths", color: .red)
+          // format decimal
+          DataCardView(number:  String(format: "%.2f", totalData.fatality_rate), name: "Death %", color: .red)
         }
       }
       .frame(height: 170)

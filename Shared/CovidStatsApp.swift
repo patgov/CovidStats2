@@ -13,6 +13,7 @@ struct CovidStatsApp: App {
     var body: some Scene {
         WindowGroup {
           MainView()
+         // .withErrorHandling()
         }
     }
 }
