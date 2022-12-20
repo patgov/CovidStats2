@@ -18,7 +18,7 @@ final class LocalFileManager {
 
   private init () { }
 
-    // Mark: func saveCountriesLocally()
+    // MARK: func saveCountriesLocally()
     // Pass Data from API
   func saveCountriesLocally(countryData: Data?) {
 
@@ -26,6 +26,9 @@ final class LocalFileManager {
         // Convert to JSON as  dictionary[ ] with Any value
       if let json = try? JSONSerialization.jsonObject(with: countryData, options: []) as? [String:Any]
       {
+
+        // MARK: local json data test
+        //   print(json)
 
       do {
           // get the file for writing data - rw country.json

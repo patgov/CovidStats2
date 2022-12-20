@@ -11,8 +11,8 @@ struct AllReports: Codable {
   let data: [RegionReport]
 }
 
-struct RegionReport: Codable,Identifiable {
- let id = UUID()
+struct RegionReport: Codable,Identifiable, Hashable {
+  var id = UUID()
   let date: Date  // decode a string into a string
   let confirmed: Int
   let deaths: Int
@@ -29,7 +29,7 @@ struct RegionReport: Codable,Identifiable {
   
 }
 
-struct RegionDetail: Codable {
+struct RegionDetail: Codable,Hashable {
   let name: String
   let province: String
 }

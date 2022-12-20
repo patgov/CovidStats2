@@ -17,22 +17,24 @@ struct ReportView: View {
 
     ZStack(alignment: .top) {
 
-      LinearGradient(colors: [
-        Color(red: 0.76, green: 0.15, blue: 0.26),
-        Color(red: 0.01, green: 0.23, blue: 0.5)
-      ], startPoint: .topLeading, endPoint: .bottomTrailing  )
-      .ignoresSafeArea()
+//LinearGradient(colors: [
+    //  Color(red: 0.76, green: 0.15, blue: 0.26),
+   //  Color(red: 0.01, green: 0.23, blue: 0.5)
+   //   ], startPoint: .topLeading, endPoint: .bottomTrailing  )
+   //   .ignoresSafeArea()
 
       VStack {
 
         Spacer()
           // Names of country and province
         Text(report.region.name)
-          .foregroundColor(.white)
+        // MARK: Test color
+          .foregroundColor(.gray)
           .font(.largeTitle)
 
         Text(report.region.province)
-          .foregroundColor(.white)
+          // MARK: Test color
+          .foregroundColor(.gray)
           .font(.title)
 
         Spacer()
@@ -45,19 +47,22 @@ struct ReportView: View {
           Text("Deaths: \(report.deaths.roundedWithAbbreviation)")
           Text("Fatality Rate: \(report.fatality_rate.formatted())%")
         }
-        .font(.title2)
+        .font(.title)
         .frame(maxWidth: .infinity)
-        .padding(50)
+        .padding(20)
         .background(.ultraThickMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .padding()
-
+        .clipShape(RoundedRectangle(cornerRadius: 5))
+        .padding(4)
+// MARK: Test border
+        .border(.blue)
+        
         Spacer()
         Spacer()
 
       }
     }
-
+      // MARK: Test border
+    .border(.black)
     
   }
 }

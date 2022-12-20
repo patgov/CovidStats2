@@ -13,26 +13,27 @@ struct MainView: View {
 
   var body: some View {
 
+    //MARK: NavigationStack
 
     if #available(iOS 16.0, *) {
       NavigationStack(path:$path) {
 
         ZStack(alignment: .top) {
 
-          LinearGradient(colors: [
-            Color(red: 0.76, green: 0.15, blue: 0.26),
-            Color(red: 0.01, green: 0.23, blue: 0.5)
-          ], startPoint: .topLeading, endPoint: .bottomTrailing  )
-          .ignoresSafeArea()
+       //   LinearGradient(colors: [
+         //   Color(red: 0.76, green: 0.15, blue: 0.26),
+         //   Color(red: 0.01, green: 0.23, blue: 0.5)
+      //    ], startPoint: .topLeading, endPoint: .bottomTrailing  )
+       //   .ignoresSafeArea()
 
           VStack (alignment: .leading) {
             Text("World Totals")
-              .font(.title2)
-              .foregroundColor(.white)
+              .font(.title)
+              .foregroundColor(.gray)
               .padding(10)
 
 
-              // TODO:  needs to be changed to local data
+              // TODO:   changed to local data
             TotalDataView(totalData: viewModel.totalData)
 
               // conditional search field visibility
@@ -43,7 +44,7 @@ struct MainView: View {
               ///All Countries  v7
             Text("All Countries")
               .font(.title2.bold())
-              .foregroundColor(.white)
+              .foregroundColor(.gray)
               .padding(10)
 
 
@@ -56,7 +57,7 @@ struct MainView: View {
                   viewModel.searchText.isEmpty ? true : $0.name.lowercased().contains(viewModel.searchText.lowercased())
                 }, id:\.iso) { country in
                   HStack {
-                    Text("\(country.name)  -")
+                    Text("\(country.name) -")
                    // NavigationLink(country.name, value: country)
                     NavigationLink(country.iso, value: country)
                   }
@@ -64,9 +65,13 @@ struct MainView: View {
                 }
               }
             .listStyle(.plain)
+            // MARK: Border Test
+            .border(.gray)
 
             } // End of List
           // modifier (for: Type of data) navigationDestination is tracks
+
+          //MARK: navigationDestination()
             .navigationDestination(for: Country.self ) { country in
               //The modifier takes a view builder that describes what view is to be pushed onto the stack when a value is presented
               CountryDetailView(viewModel: CountryDetailViewModel(country: country))
@@ -93,17 +98,20 @@ struct MainView: View {
           } label: {
             Image(systemName: "magnifyingglass")
 
+
           }
         }
-        .tint(.white)
+        // MARK: Test Border
+     .tint(.black)
 
       } // End of NavigationView
-      .accentColor(.white)
+      //TODO: test color white, gray, black
+      .accentColor(.gray)
     } else {
-        // Fallback on earlier versions
+        // TODO: Fallback on earlier versions
     }
 
-   //Goto another view
+   //TODO: Goto another view
 
     }
   }

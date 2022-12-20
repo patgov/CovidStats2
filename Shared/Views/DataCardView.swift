@@ -11,7 +11,7 @@ struct DataCardView: View {
 
   var number: String = "--"
   var name: String = "Error"
-  var color: Color = .primary
+  var color: Color = .secondary
 
 
   var body: some View {
@@ -28,8 +28,12 @@ struct DataCardView: View {
           .foregroundColor(self.color)
       }
       .frame(width: geometry.size.width, height: 80, alignment: .center)
-      .background(Color("cardBackground"))
-      .cornerRadius(8)
+   //  .background(Color("cardBackground"))
+
+     // .padding(5)
+      //MARK: Test border
+      .border(.orange)
+      .cornerRadius(3)
     }
 
 

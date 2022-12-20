@@ -148,13 +148,19 @@ class APIService {
 
   func fetchReport(for iso: String, completion: @escaping(Result<[RegionReport], Error>)-> Void) {
 
-    let reportsURL = URLString + "/reports?iso=\(iso)"
+      // MARK: Reports  iso=  "CAN
 
+    let reportsURL = URLString + "/reports?iso=\(iso)"
+      //reports?iso=CAN"
+      //=\(iso)
     let url = URL(string: reportsURL)
 
-    guard let url = url else {
+      // if no url show error incorrectURL
 
+    guard let url = url else {
+        // call the completion handler
       completion(.failure(CovidError.incorrectURL))
+        //If a url then request data from the url
       return
     }
     var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy,  timeoutInterval: 10.0)
@@ -168,22 +174,25 @@ class APIService {
 
       if (error != nil) {
 
+          // use completion handler again or use error
         completion(.failure(CovidError.noDataReceived))
       } else {
 
         let decoder = JSONDecoder()
 
- if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
- print(json)
- }
+// MARK: Test From API, This is working
+// if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
+// print(json)
+// }
 
         let formatter = DateFormatter()
         formatter.dateFormat = "y-MM-dd"
         decoder.dateDecodingStrategy = .formatted(formatter)
 
       do {
-        //MARK: Test From API
-   print("returning from API")
+        //MARK: Test From API, all data, This is working
+       //  print("returning from API")
+
           let allReports = try decoder.decode(AllReports.self, from: data!)
           completion(.success(allReports.data))
         } catch let error {

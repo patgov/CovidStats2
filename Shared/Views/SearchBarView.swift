@@ -14,13 +14,16 @@ struct SearchBarView: View {
       HStack {
     
         TextField("Country...", text: $searchText)
-          .foregroundColor(.white)
-          .padding()
+        //MARK: Text color 
+          .foregroundColor(.black)
+          .padding(2)
 
       }
       .frame(height: 50)
       // somewhat translucent
       .background(.regularMaterial)
+      // MARK: Test border
+      .border(.black)
     }
 }
 
