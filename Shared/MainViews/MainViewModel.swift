@@ -53,6 +53,8 @@ final class MainViewModel: ObservableObject {
             self.allCountries = allCountries.sorted(by: { $0.name < $1.name } )
      
           case .failure(_):
+            // MARK: Print Error
+           // print("Error total data")
             self.alertItem = AlertContext.unableToFetchCountries
         }
       }

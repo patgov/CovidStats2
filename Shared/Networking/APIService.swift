@@ -56,6 +56,7 @@ class APIService {
         if (error != nil) {
 
           completion(.failure(CovidError.noDataReceived))
+          return
         } else {
         // create json object and receive data object and convert to json
           //Testing json
@@ -107,7 +108,7 @@ class APIService {
       // then exit function
       return
     }
-
+      // If url is present, then request data from the url
     var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy,  timeoutInterval: 10.0)
 
     request.httpMethod = "GET"
@@ -118,7 +119,7 @@ class APIService {
     let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
 
       if (error != nil) {
-
+          //use completion handler again or use error
         completion(.failure(CovidError.noDataReceived))
       } else {
 
@@ -131,7 +132,9 @@ class APIService {
           
           LocalFileManager.shared.saveCountriesLocally(countryData: data)
         do {
-            // print("returning from API")
+//MARK: Test print
+          print("returning from API")
+          
           let allCountries = try decoder.decode(AllRegions.self, from: data!)
           completion(.success(allCountries.data))
 
@@ -195,6 +198,8 @@ class APIService {
 
           let allReports = try decoder.decode(AllReports.self, from: data!)
           completion(.success(allReports.data))
+
+     debugPrint(allReports.data as Any)
         } catch let error {
           completion(.failure(error))
         }

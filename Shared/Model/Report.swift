@@ -12,7 +12,7 @@ struct AllReports: Codable {
 }
 
 struct RegionReport: Codable,Identifiable, Hashable {
-  var id = UUID()
+let id = UUID()
   let date: Date  // decode a string into a string
   let confirmed: Int
   let deaths: Int

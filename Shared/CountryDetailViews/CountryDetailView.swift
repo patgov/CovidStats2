@@ -13,7 +13,7 @@ struct CountryDetailView: View {
 
     // observe CountryDetailViewModel
   @ObservedObject var  viewModel:CountryDetailViewModel
-  @State var path: [RegionDetail] = []
+  @State var region: [RegionDetail] = []
   
   var body: some View {
 
@@ -30,12 +30,12 @@ struct CountryDetailView: View {
             NavigationLink(destination: ReportView(report: report)) {
                 // Show the province from the report regions
               Text(report.region.province)
-                //     NavigationLink(report.region.province, value: report)
+             NavigationLink(report.region.province, value: report)
 
             }
           }
         }
-            // There can be a list of provinces or a detail view of country
+            // There can be a list of states and provinces or a detail view of country
           .listStyle(.plain)
           .navigationTitle(viewModel.reports.first?.region.name ?? "Unknown Country")
           .navigationBarTitleDisplayMode(.inline)

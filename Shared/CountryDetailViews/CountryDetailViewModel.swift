@@ -20,9 +20,13 @@ final class CountryDetailViewModel: ObservableObject {
   // Only fetch the data when the view has opened
   init(country: Country) {
     iso = country.iso
-  
+
+// MARK: testing country iso only
+    debugPrint(country.iso)
+
   }
 
+    // MARK:  func fetchReport()
   func fetchReport() {
 
     APIService.shared.fetchReport(for: iso) { result in
@@ -32,7 +36,6 @@ final class CountryDetailViewModel: ObservableObject {
 
           case .success(let reports):
             self.reports = reports
-
           case .failure(_):
          print("Error getting country report")
             // MARK: Testing alertItem
