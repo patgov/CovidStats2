@@ -88,6 +88,7 @@
 		3D2A7EBD294CE6B400C3F518 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3D2A7EC7294CE84C00C3F518 /* StateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDetailView.swift; sourceTree = "<group>"; };
 		3D2A7EC9294CE88400C3F518 /* StateDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDetailViewModel.swift; sourceTree = "<group>"; };
+		3D2CD99C2A2E2C9D002946A0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3D3776DA2860BDCE005EF221 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		3D3776DD2860C4A2005EF221 /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
 		3D3776E12860C59B005EF221 /* CountryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewModel.swift; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 		3D8B64C62858EDBB006C36CE = {
 			isa = PBXGroup;
 			children = (
+				3D2CD99C2A2E2C9D002946A0 /* README.md */,
 				3D8B64CB2858EDBC006C36CE /* Shared */,
 				3D8B64DA2858EDBD006C36CE /* macOS */,
 				3D2A7EB5294CE6B300C3F518 /* CovidStats Watch App */,
