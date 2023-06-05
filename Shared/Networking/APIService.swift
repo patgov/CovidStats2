@@ -1,7 +1,7 @@
 //
 //  File.swift
 //  CovidStats
-//
+// https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/
 //  Created by Pat Govan on 6/14/22.
 // API SERVICE
 
@@ -17,9 +17,10 @@ class APIService {
 
 
   private init () {}
-
+    //bc8d714225msh8661833d4760903p17f9a8jsn41e8b34682b9
   private  let headers = [
-    "X-RapidAPI-Key": "cbb8cd2732msh0977d692947162bp1bdea7jsnf4b4e3165ccd",
+
+    "X-RapidAPI-Key": "bc8d714225msh8661833d4760903p17f9a8jsn41e8b34682b9",
     "X-RapidAPI-Host": "covid-19-statistics.p.rapidapi.com"
   ]
 
@@ -60,10 +61,10 @@ class APIService {
         } else {
         // create json object and receive data object and convert to json
           //Testing json
-//           if let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-//           as? [String: Any] {
-//           print(json)
-//           }
+           if let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+           as? [String: Any] {
+           print(json)
+           }
 
           // Convert TotalData to a data object
           let decoder = JSONDecoder()
@@ -123,7 +124,7 @@ class APIService {
         completion(.failure(CovidError.noDataReceived))
       } else {
 
-          // fetch json func fetchAllRegions
+          //TODO: Test fetch json func fetchAllRegions
 //           if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
 //           print(json)
 //           }

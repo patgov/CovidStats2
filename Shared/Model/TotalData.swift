@@ -18,7 +18,7 @@ struct TotalData: Codable {
   let deaths: Int
   let active: Int
   let recovered: Int
-let fatality_rate: Double
+  let fatality_rate: Double
 
   static let dummyData = TotalData(confirmed: 0, deaths: 0, active: 0, recovered: 0, fatality_rate: 0.0 )
 
