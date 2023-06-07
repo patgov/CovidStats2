@@ -16,8 +16,6 @@ struct TotalDataView: View {
       VStack{
         HStack {
           // format number into a string
-         // DataCardView(number: totalData.confirmed.formatNumber, name: "Confirmed")
-          
           DataCardView(number: totalData.confirmed.formatNumber, name: "Confirmed")
           DataCardView(number: totalData.active.formatNumber, name: "Active", color: .green)
         }
@@ -29,8 +27,6 @@ struct TotalDataView: View {
         }
       }
       .frame(height: 170)
-// MARK: Test padding
-        // .padding(5)
         // MARK: Border Test
       .border(.black)
 

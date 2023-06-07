@@ -22,7 +22,7 @@ final class CountryDetailViewModel: ObservableObject {
     iso = country.iso
 
 // MARK: testing country iso only
- //   debugPrint(country.iso)
+   debugPrint(country.iso)
 
   }
 

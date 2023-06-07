@@ -13,7 +13,6 @@ struct DataCardView: View {
   var name: String = "Error"
   var color: Color = .secondary
 
-
   var body: some View {
       // Dynamic card size for different size devices
     GeometryReader {  geometry in
@@ -29,14 +28,10 @@ struct DataCardView: View {
       }
       .frame(width: geometry.size.width, height: 80, alignment: .center)
    //  .background(Color("cardBackground"))
-
-     // .padding(5)
       //MARK: Test border
       .border(.orange)
       .cornerRadius(3)
     }
-
-
 
   }
 }

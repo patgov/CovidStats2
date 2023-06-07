@@ -12,13 +12,13 @@
 import Foundation
 
 
+
 final class LocalFileManager {
 
   static let shared = LocalFileManager()
 
   private init () { }
 
-    // MARK: func saveCountriesLocally()
     // Pass Data from API
   func saveCountriesLocally(countryData: Data?) {
 
@@ -28,8 +28,7 @@ final class LocalFileManager {
       {
 
         // MARK: local json data test
-        //   print(json)
-
+     //print(json)
       do {
           // get the file for writing data - rw country.json
         let fileURL = getDocumentDirectory().appendingPathComponent("country.json")
@@ -43,7 +42,6 @@ final class LocalFileManager {
     }
   }
 
-    //MARK: func fetchLocalCountries()
     // get the data back from country.json
   func fetchLocalCountries() -> Data? {
 
@@ -65,4 +63,6 @@ final class LocalFileManager {
     FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
   }
-}
+
+
+} // End of Class

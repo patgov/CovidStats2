@@ -12,15 +12,14 @@ struct AllReports: Codable {
 }
 
 struct RegionReport: Codable,Identifiable, Hashable {
-let id = UUID()
-  let date: Date  // decode a string into a string
+let id = UUID()  // Immutable property?
+  let date: Date
   let confirmed: Int
   let deaths: Int
   let active: Int
   let fatality_rate: Double
   let region: RegionDetail
- // let region: region_province
-// var the returns a string
+
   var formattedDate: String { date.formatted(date: .abbreviated, time: .omitted)
   }
 

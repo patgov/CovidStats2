@@ -33,7 +33,6 @@ struct ReportView: View {
           .font(.largeTitle)
 
         Text(report.region.province)
-          // MARK: Test color
           .foregroundColor(.gray)
           .font(.title)
 
@@ -51,8 +50,8 @@ struct ReportView: View {
         .frame(maxWidth: .infinity)
         .padding(20)
         .background(.ultraThickMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 5))
-        .padding(4)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .padding()
 // MARK: Test border
         .border(.blue)
         

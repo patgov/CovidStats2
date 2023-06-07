@@ -12,7 +12,7 @@ struct SearchBarView: View {
 
     var body: some View {
       HStack {
-    
+          // create a binding string $searchText
         TextField("Country...", text: $searchText)
         //MARK: Text color 
           .foregroundColor(.black)
